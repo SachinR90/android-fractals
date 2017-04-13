@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setupCamera(640, 480,null);
+        setupCamera(640, 480, 30, null);
     }
 
     public void setupCamera(int wid, int hei, double fps, Camera.PreviewCallback cb) {
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         int targetMaxFrameRate = supportedFrameRate.get(targetIndex)[0];
         int targetMinFrameRate = supportedFrameRate.get(targetIndex)[1];
-        Camera.Parameters p = camera.getParameters();
+        p = camera.getParameters();
         p.setPreviewSize(procSize_.width, procSize_.height);
         p.setPreviewFpsRange(targetMaxFrameRate, targetMinFrameRate);
         camera.setParameters(p);
